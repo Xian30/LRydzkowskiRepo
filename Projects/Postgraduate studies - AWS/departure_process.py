@@ -13,7 +13,7 @@ spark = glueContext.spark_session
 job = Job(glueContext)
 job.init(args["JOB_NAME"], args)
 
-# Script generated for node Amazon S3
+
 AmazonS3_node1676723967170 = glueContext.create_dynamic_frame.from_options(
     format_options={},
     connection_type="s3",
@@ -25,7 +25,7 @@ AmazonS3_node1676723967170 = glueContext.create_dynamic_frame.from_options(
     transformation_ctx="AmazonS3_node1676723967170",
 )
 
-# Script generated for node S3 bucket
+
 S3bucket_node1 = glueContext.create_dynamic_frame.from_options(
     format_options={},
     connection_type="s3",
@@ -37,7 +37,7 @@ S3bucket_node1 = glueContext.create_dynamic_frame.from_options(
     transformation_ctx="S3bucket_node1",
 )
 
-# Script generated for node Amazon S3
+
 AmazonS3_node1676723915520 = glueContext.create_dynamic_frame.from_options(
     format_options={},
     connection_type="s3",
@@ -49,7 +49,7 @@ AmazonS3_node1676723915520 = glueContext.create_dynamic_frame.from_options(
     transformation_ctx="AmazonS3_node1676723915520",
 )
 
-# Script generated for node Change Schema (Apply Mapping)
+
 ChangeSchemaApplyMapping_node1676723993080 = ApplyMapping.apply(
     frame=AmazonS3_node1676723967170,
     mappings=[
@@ -70,7 +70,7 @@ ChangeSchemaApplyMapping_node1676723993080 = ApplyMapping.apply(
     transformation_ctx="ChangeSchemaApplyMapping_node1676723993080",
 )
 
-# Script generated for node ApplyMapping
+
 ApplyMapping_node2 = ApplyMapping.apply(
     frame=S3bucket_node1,
     mappings=[
@@ -87,7 +87,7 @@ ApplyMapping_node2 = ApplyMapping.apply(
     transformation_ctx="ApplyMapping_node2",
 )
 
-# Script generated for node Change Schema (Apply Mapping)
+
 ChangeSchemaApplyMapping_node1676723990600 = ApplyMapping.apply(
     frame=AmazonS3_node1676723915520,
     mappings=[
@@ -144,7 +144,7 @@ ChangeSchemaApplyMapping_node1676723990600 = ApplyMapping.apply(
     transformation_ctx="ChangeSchemaApplyMapping_node1676723990600",
 )
 
-# Script generated for node Join
+
 ChangeSchemaApplyMapping_node1676723990600DF = (
     ChangeSchemaApplyMapping_node1676723990600.toDF()
 )
@@ -164,7 +164,7 @@ Join_node1676724056508 = DynamicFrame.fromDF(
     "Join_node1676724056508",
 )
 
-# Script generated for node Join
+
 Join_node1676724056508DF = Join_node1676724056508.toDF()
 ApplyMapping_node2DF = ApplyMapping_node2.toDF()
 Join_node1676724144410 = DynamicFrame.fromDF(
@@ -180,7 +180,7 @@ Join_node1676724144410 = DynamicFrame.fromDF(
     "Join_node1676724144410",
 )
 
-# Script generated for node Amazon S3
+
 AmazonS3_node1676724193415 = glueContext.getSink(
     path="s3://lrpostgradudeflights/full_departures/",
     connection_type="s3",
